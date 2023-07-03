@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 
 // middleware de rutas
 app.use("/api/user", usersRoutes);
+//OJO DEBE SER /api/mascotas
 app.use("/", mascotasRoutes);
 app.use("/api/comentarios", comentariosRoutes);
 

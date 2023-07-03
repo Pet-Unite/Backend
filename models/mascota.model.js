@@ -8,7 +8,7 @@ const mascotaSchema=mongoose.Schema({
     origen: {type:String,require},
     tamaño: {type:String,require},
     historia: {type:String,require},
-    like: {type:Number,require},
+    likes: {type: Number, default: 0},
     comentarios:{type:Array}
 },{
     timestamps:true,

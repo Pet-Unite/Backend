@@ -14,6 +14,7 @@ const mascotaSchema = mongoose.Schema(
     src: {
       type: String,
       require,
+      default: "No image url",
     },
     longevidad: {
       type: String,

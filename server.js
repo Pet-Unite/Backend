@@ -1,21 +1,42 @@
+///////////////////
 const express = require("express");
+const mongoose = require("mongoose");
 const cors = require("cors");
-const db = require("./config/db");
+//importar rutas
+const mascotasRoutes = require("./routes/mascotas.routes");
+const usersRoutes = require("./routes/user.routes");
+const comentariosRoutes = require("./routes/comentarios.routes");
 
+// MONGO DB URL
+const url =
+  "mongodb+srv://admin:1234@cluster0.7hznz3l.mongodb.net/?retryWrites=true&w=majority";
 const app = express();
-app.use(cors());
 
 app.use(express.json());
-
-require("./routes/user.routes")(app);
-require("./routes/mascotas.routes")(app);
-require("./routes/comentarios.routes")(app);
-
-app.get("/", (req, res) => {
-  res.send("Servidor trabajando" + port);
-});
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 app.use(express.static("public"));
 
-const port = process.env.PORT || 8000;
+//middleware para loggear los request
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
+});
 
-app.listen(port, () => "servidor trabajando en el puerto");
+// middleware de rutas
+app.use("/api/user", usersRoutes);
+app.use("/api/mascotas", mascotasRoutes);
+app.use("/api/comentarios", comentariosRoutes);
+
+//conectar a la base de datos
+mongoose
+  .connect(url)
+  .then(() => {
+    app.listen(8000, () => {
+      console.log("Escuchando en puerto:", 8000);
+    });
+    console.log("Conectado a la base de datos");
+  })
+  .catch((err) => {
+    console.log(err);
+  });

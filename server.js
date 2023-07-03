@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 
 // middleware de rutas
 app.use("/api/user", usersRoutes);
-app.use("/api/mascotas", mascotasRoutes);
+app.use("/", mascotasRoutes);
 app.use("/api/comentarios", comentariosRoutes);
 
 //conectar a la base de datos

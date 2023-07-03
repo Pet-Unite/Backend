@@ -4,7 +4,7 @@ const Mascota = require("../models/mascota.model");
 
 const finallmascotas = async (req, res) => {
   try {
-    const mascotas = await MascotaModel.find();
+    const mascotas = await Mascota.find();
     res.json({ mascotas });
   } catch (error) {
     return res.status(400).json({ message: error });

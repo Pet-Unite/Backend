@@ -31,10 +31,10 @@ app.use((req, res, next) => {
 });
 
 // middleware de rutas
-app.use("/api/user", usersRoutes);
+app.use("/user", usersRoutes);
 //OJO DEBE SER /api/mascotas
-app.use("/api/mascotas", mascotasRoutes);
-app.use("/api/comentarios", comentariosRoutes);
+app.use("/mascotas", mascotasRoutes);
+app.use("/comentarios", comentariosRoutes);
 
 //conectar a la base de datos
 mongoose

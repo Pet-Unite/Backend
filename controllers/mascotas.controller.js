@@ -140,9 +140,7 @@ const updateMascota = async (req, res) => {
 };
 
 module.exports = {
-  finallmascotas,
   findcategoria,
-  findoneitem,
   darlike,
   dardislike,
   getMascotas,

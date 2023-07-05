@@ -2,9 +2,7 @@ const express = require("express");
 const router = express.Router();
 //importar controladores
 const {
-  finallmascotas,
   findcategoria,
-  findoneitem,
   darlike,
   dardislike,
   getMascotas,

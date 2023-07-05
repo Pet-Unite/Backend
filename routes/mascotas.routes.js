@@ -15,9 +15,7 @@ const {
 } = require("../controllers/mascotas.controller");
 
 // rutas existentes
-router.get("/mascotas", finallmascotas);
 router.get("/mascotas/:tipo", findcategoria);
-router.get("/mascota/:_id", findoneitem);
 router.put("/mascota/like", darlike);
 router.put("/mascota/dislike", dardislike);
 

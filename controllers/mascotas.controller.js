@@ -3,25 +3,12 @@ const mongoose = require("mongoose");
 
 const Mascota = require("../models/mascota.model");
 
-const finallmascotas = async (req, res) => {
-  try {
-    const mascotas = await Mascota.find();
-    res.json({ mascotas });
-  } catch (error) {
-    return res.status(400).json({ message: error });
-  }
-};
-
 const findcategoria = async (req, res) => {
   Mascota.find({ tipo: req.params.tipo })
     .then((r) => res.json({ results: r }))
     .catch((e) => res.json({ e }));
 };
-const findoneitem = (req, res) => {
-  Mascota.findOne({ _id: req.params._id })
-    .then((r) => res.json({ results: r }))
-    .catch((e) => res.json({ e }));
-};
+
 const darlike = (req, res) => {
   Mascota.findByIdAndUpdate(
     req.params._id,

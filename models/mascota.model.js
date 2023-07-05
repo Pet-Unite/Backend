@@ -30,7 +30,6 @@ const mascotaSchema = mongoose.Schema(
     },
     historia: {
       type: String,
-      require,
     },
     likes: {
       type: Number,

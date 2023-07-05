@@ -14,7 +14,14 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+
+// Configurar los encabezados CORS
+app.use(
+  cors({
+    origin: "http://localhost:5173", // URL FRONTEND
+    credentials: true,
+  })
+);
 app.use(express.static("public"));
 
 //middleware para loggear los request

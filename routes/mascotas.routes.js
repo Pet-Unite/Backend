@@ -13,13 +13,13 @@ const {
 } = require("../controllers/mascotas.controller");
 
 // rutas existentes
-
+router.get("/all" , getMascotas)
+router.get("/single/:id", getMascota);
+router.get("/category/:id" , findcategoria)
 router.put("/like", darlike);
 router.put("/dislike", dardislike);
 
 // rutas crud
-
-router.get("/single/:id", getMascota);
 router.post("/", createMascota);
 router.delete("/:id", deleteMascota);
 router.put("/:id", updateMascota);

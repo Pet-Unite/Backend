@@ -15,7 +15,7 @@ const {
 // rutas existentes
 router.get("/all" , getMascotas)
 router.get("/single/:id", getMascota);
-router.get("/category/:id" , findcategoria)
+router.get("/category/:tipo" , findcategoria)
 router.put("/like", darlike);
 router.put("/dislike", dardislike);
 

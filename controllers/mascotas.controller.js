@@ -4,9 +4,12 @@ const mongoose = require("mongoose");
 const Mascota = require("../models/mascota.model");
 
 const findcategoria = async (req, res) => {
-  Mascota.find({ tipo: req.params.tipo })
-    .then((r) => res.json({ results: r }))
-    .catch((e) => res.json({ e }));
+  try {
+    const results = await Mascota.find({ tipo: req.params.tipo });
+    res.json(results);
+  } catch (e) {
+    res.json(e);
+  }
 };
 
 const darlike = (req, res) => {
